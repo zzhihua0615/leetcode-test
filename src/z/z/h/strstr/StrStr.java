@@ -32,13 +32,10 @@ public class StrStr {
      * @return
      */
     public static int strStr(String haystack, String needle) {
-        if (null == needle) {
+        if (null == needle || needle.trim().length() == 0) {
             return 0;
         }
         char[] needleCharArr = needle.toCharArray();
-        if (needleCharArr.length == 0) {
-            return 0;
-        }
         char[] chars = haystack.toCharArray();
         char first = needleCharArr[0];
         int max = chars.length - needleCharArr.length;
