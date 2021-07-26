@@ -72,7 +72,7 @@ public class Divide {
     }
 
     /**
-     * 该方法与上面方法类似，当时每次加减的被除数逐渐递增，提高效率
+     * 该方法与上面方法类似，但是每次加减的除数逐渐递增，提高效率
      * 作者：liujin - 4
      * 链接：https:
      * //leetcode-cn.com/problems/divide-two-integers/solution/po-su-de-xiang-fa-mei-you-wei-yun-suan-mei-you-yi-/
