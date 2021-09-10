@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class IsValidSudoku {
 
     /**
-     * 思路：在一次便利中判断横向、纵向已经子数独中是否存在重复元素
+     * 思路：在一次便利中判断横向、纵向以及子数独中是否存在重复元素
      * 对于子数独的枚举：
      * box_index = (row / 3) * 3 + columns / 3
      * 通过利用map存储数据在三个纬度中出现的次数，如果出现次数大于1，说明存在重复的元素
