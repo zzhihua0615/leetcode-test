@@ -53,4 +53,61 @@ public class GenerateMatrix {
         }
         return matrix;
     }
+
+    /**
+     * 方法二，按层模拟
+     * 对于每层，从左上方开始以顺时针的顺序填入所有元素。假设当前层的左上角位于 (top,left)，右下角位于 (bottom,right)，按照如下顺序填入当前层的元素。
+     * <p>
+     * 从左到右填入上侧元素，依次为 (top,left) 到 (top,right)。
+     * <p>
+     * 从上到下填入右侧元素，依次为 (top+1,right) 到 (bottom,right)。
+     * <p>
+     * 如果 left<right且 top<bottom，则从右到左填入下侧元素，依次为 (bottom,right−1)到 (bottom,left+1)，以及从下到上填入左侧元素，依次为 (bottom,left)到 (top+1,left)。
+     * <p>
+     * 填完当前层的元素之后，将 left 和 top分别增加 1，将 right和 bottom分别减少 1，进入下一层继续填入元素，直到填完所有元素为止。
+     * <p>
+     * 作者：LeetCode-Solution
+     * 链接：https://leetcode-cn.com/problems/spiral-matrix-ii/solution/luo-xuan-ju-zhen-ii-by-leetcode-solution-f7fp/
+     * 来源：力扣（LeetCode）
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     * <p>
+     * <p>
+     * 作者：LeetCode-Solution
+     * 链接：https://leetcode-cn.com/problems/spiral-matrix-ii/solution/luo-xuan-ju-zhen-ii-by-leetcode-solution-f7fp/
+     * 来源：力扣（LeetCode）
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     *
+     * @param n
+     * @return
+     */
+    public int[][] generateMatrix2(int n) {
+        int num = 1;
+        int[][] matrix = new int[n][n];
+        int left = 0, right = n - 1, top = 0, bottom = n - 1;
+        while (left <= right && top <= bottom) {
+            for (int column = left; column <= right; column++) {
+                matrix[top][column] = num;
+                num++;
+            }
+            for (int row = top + 1; row <= bottom; row++) {
+                matrix[row][right] = num;
+                num++;
+            }
+            if (left < right && top < bottom) {
+                for (int column = right - 1; column > left; column--) {
+                    matrix[bottom][column] = num;
+                    num++;
+                }
+                for (int row = bottom; row > top; row--) {
+                    matrix[row][left] = num;
+                    num++;
+                }
+            }
+            left++;
+            right--;
+            top++;
+            bottom--;
+        }
+        return matrix;
+    }
 }
