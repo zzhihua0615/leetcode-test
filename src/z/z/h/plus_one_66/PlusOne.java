@@ -11,6 +11,23 @@ public class PlusOne {
         System.out.println(plusOne(digits).toString());
     }
 
+    /**
+     * 当我们对数组 digits\textit{digits}digits 加一时，我们只需要关注 digits\textit{digits}digits 的末尾出现了多少个 999 即可。我们可以考虑如下的三种情况：
+     * <p>
+     * 如果 digits\textit{digits}digits 的末尾没有 999，例如 [1,2,3][1, 2, 3][1,2,3]，那么我们直接将末尾的数加一，得到 [1,2,4][1, 2, 4][1,2,4] 并返回；
+     * <p>
+     * 如果 digits\textit{digits}digits 的末尾有若干个 999，例如 [1,2,3,9,9][1, 2, 3, 9, 9][1,2,3,9,9]，那么我们只需要找出从末尾开始的第一个不为 999 的元素，即 333，将该元素加一，得到 [1,2,4,9,9][1, 2, 4, 9, 9][1,2,4,9,9]。随后将末尾的 999 全部置零，得到 [1,2,4,0,0][1, 2, 4, 0, 0][1,2,4,0,0] 并返回。
+     * <p>
+     * 如果 digits\textit{digits}digits 的所有元素都是 999，例如 [9,9,9,9,9][9, 9, 9, 9, 9][9,9,9,9,9]，那么答案为 [1,0,0,0,0,0][1, 0, 0, 0, 0, 0][1,0,0,0,0,0]。我们只需要构造一个长度比 digits\textit{digits}digits 多 111 的新数组，将首元素置为 111，其余元素置为 000 即可。
+     * <p>
+     * 作者：LeetCode-Solution
+     * 链接：https://leetcode-cn.com/problems/plus-one/solution/jia-yi-by-leetcode-solution-2hor/
+     * 来源：力扣（LeetCode）
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     *
+     * @param digits
+     * @return
+     */
     public static int[] plusOne(int[] digits) {
         int n = digits.length;
         for (int i = n - 1; i >= 0; --i) {
